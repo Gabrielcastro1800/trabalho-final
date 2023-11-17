@@ -15,7 +15,7 @@
         
         let selectList = document.createElement("select");
         selectList.id = "mySelect";
-        myParent.appendChild(selectList);
+        document.getElementById("mySelect").appendChild(selectList);
         for (c = 0; c < au1.length; c++) {
         let option = document.createElement("option");
         option.value = au1[c][1];
