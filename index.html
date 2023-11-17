@@ -12,9 +12,17 @@
     <script>
         async function pegatexto(file) {
         let au1 = await fetch(file);
-        let au2 = await au1.text();
-        document.getElementById("escrever").innerHTML = au2;
-                                        }
+        au1 = au1.nome_pais.text()    
+        let selectList = document.createElement("select");
+        selectList.id = "mySelect";
+        myParent.appendChild(selectList);
+        for (c = 0; c < au1.length; c++) {
+        let option = document.createElement("option");
+        option.value = au1[c];
+        option.text = au1[c];
+        selectList.appendChild(option);
+        }
+        }
         pegatexto("paises.json")
 
     </script>
