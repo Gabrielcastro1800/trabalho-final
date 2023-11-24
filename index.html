@@ -11,14 +11,14 @@
 
     <script>
         async function pegatexto(file) {
-        let au1 = fetch(file);
-        
+        let au1 =  await fetch(file);
+        let au1_js = await au1.json
         let selectList = document.createElement("select");
         selectList.id = "mySelect";
         document.getElementById("esc").appendChild(selectList);
-        for (c = 0; c < au1.length; c++) {
+        for (c = 0; c < au1_js.length; c++) {
         let option = document.createElement("option");
-        option = au1[c][1];
+        option = au1_js[c][1];
         selectList.appendChild(option);
         }
         }
