@@ -7,11 +7,11 @@
     <title>Trabalho final</title>
 </head>
 <body>
-    <p id="esc"</p>
+    <p id="esc">selecione o pais</p>
 
     <script>
         async function pegatexto(file) {
-        let au1 = await fetch(file);
+        let au1 = fetch(file);
         
         let selectList = document.createElement("select");
         selectList.id = "mySelect";
@@ -19,7 +19,6 @@
         for (c = 0; c < au1.length; c++) {
         let option = document.createElement("option");
         option = au1[c][1];
-        console.log(option)
         selectList.appendChild(option);
         }
         }
