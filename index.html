@@ -8,18 +8,27 @@
 </head>
 <body>
     <p id="esc">selecione o pais</p>
-
+  
     <script>
-        let au1 =  await fetch("paises.json");
-        let au1_js = await au1.json
-        let selectList = document.createElement("select");
-        document.getElementById("esc").appendChild(selectList);
-        for (c = 0; c < au1_js.length; c++) {
+        async function pegatexto(file) {
+        let au1 =  await fetch(file);
+        let au1_js = await au1.json();
+        let selectlist = document.createElement("select");
+        document.getElementById("esc").appendChild(selectlist);
+        let selectlist2 = document.querySelector("#esc select");
         let option = document.createElement("option");
-        option = au1_js[c][1];
-        selectList.appendChild(option);
-        }
+        
+        au1_js.forEach(pais => {
 
+            option = pais.nome_pais;
+
+            option = new Option(option)
+            selectlist.add(option)
+               });
+        
+        
+        }
+        pegatexto("paises.json")
     </script>
 </body>
 </html>
